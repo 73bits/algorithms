@@ -7,6 +7,7 @@ public class Main {
 		};
 
 		System.out.println(maximumWealth(accounts));
+		System.out.println(maximumWealthEnhanced(accounts));
 	}
 
 	public static int maximumWealth(int[][] accounts) {
@@ -15,6 +16,20 @@ public class Main {
 			int total = 0;
 			for (int account = 0; account < accounts[customer].length; account++) {
 				total = total + accounts[customer][account];
+			}
+			if (total > maxWealth) {
+				maxWealth = total;
+			}
+		}
+		return maxWealth;
+	}
+
+	public static int maximumWealthEnhanced(int[][] accounts) {
+		int maxWealth = Integer.MIN_VALUE;
+		for (int[] account : accounts) {
+			int total = 0;
+			for (int amount : account) {
+				total = total + amount;
 			}
 			if (total > maxWealth) {
 				maxWealth = total;
